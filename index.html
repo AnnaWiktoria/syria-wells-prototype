@@ -5,34 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+    <title>Map of wells in Syria</title>
 
-
-    <title>Syria Well Map</title>
-
-    <!-- Leaflet (Jedyna zewnętrzna biblioteka - niezbędna do mapy) -->
+    <!-- Leaflet (The only external library - essential for the map)-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <!-- TWÓJ CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <header class="app-header">
-        <!-- Kontener na górną linię nagłówka (tytuł + selektor języka) -->
         <div class="header-top-row">
             <div class="header-title" data-key="headerTitle">Wells in Syria</div>
-            <!-- Kontener na przyciski języka -->
+            <!-- Language buttons-->
             <div class="language-selector">
                 <button id="langEn" class="lang-button active" data-lang="en">EN</button>
                 <button id="langAr" class="lang-button" data-lang="ar">عربي</button>
                 <button id="langKu" class="lang-button" data-lang="ku">Kurdî</button>
             </div>
         </div>
-        <!-- Pasek wyszukiwania przeniesiony niżej -->
+        <!-- searchbar -->
         <div class="search-container">
-            <!-- Ikonka lupy (SVG) -->
+            <!-- magnifying glass icon (SVG) -->
             <svg class="search-icon" viewBox="0 0 24 24">
                 <path
                     d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
@@ -42,16 +39,13 @@
         </div>
     </header>
 
-
-
     <div id="map"></div>
-
-    <!-- USUNIĘTO SEARCH BAR ZUPEŁNIE -->
 
     <div class="floating-buttons-container">
         <div class="add-well-options" id="addWellOptions">
             <button id="addWellCurrentLocationBtn" data-key="addCurrentLocationBtn">📍 Add at Current Location</button>
             <button id="addWellTapMapBtn" data-key="addTapMapBtn">👆 Add by Tapping Map</button>
+            <button id="cancelAddWellBtn" data-key="btnCancel">✕ Cancel</button>
         </div>
         <button id="mainAddWellBtn" data-key="addWellBtn">Add Well</button>
     </div>
