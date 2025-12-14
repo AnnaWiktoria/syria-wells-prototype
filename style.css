@@ -1,4 +1,4 @@
-/* OPTYMALIZACJA: Użycie fontów systemowych (0 KB transferu) zamiast Google Fonts */
+/* OPTIMISATION: Use of system fonts (0 KB transfer) instead of Google Fonts */
 body,
 html {
 	margin: 0;
@@ -13,38 +13,33 @@ html {
 #map {
 	width: 100%;
 	height: 100%;
-	/* WAŻNE: Odsuwamy mapę, żeby nagłówek jej nie zasłaniał */
 	padding-top: 120px !important;
 	box-sizing: border-box;
 }
 
-/* --- NAGŁÓWEK --- */
+/* --- HEADER --- */
 .app-header {
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
-	/* Zwiększ wysokość, aby pomieścić dwie linie - być może trzeba będzie delikatnie dostosować */
 	height: 120px;
 	background: #001d6e;
 	display: flex;
 	flex-direction: column;
-	justify-content: center; /* Wyśrodkowanie w pionie elementów nagłówka */
-	/* Usunięto align-items: center; aby search-container mógł być odsunięty od krawędzi za pomocą marginu */
-	padding: 16px; /* Padding dla całego nagłówka po bokach */
+	justify-content: center;
+	padding: 16px;
 	z-index: 2000;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 	box-sizing: border-box;
 }
 
-/* Nowy kontener dla tytułu i selektora języka */
 .header-top-row {
 	display: flex;
-	justify-content: space-between; /* Rozrzuć elementy na końce */
+	justify-content: space-between;
 	align-items: center;
-	width: 92%; /* Rozciągnij na całą szerokość nagłówka */
-	padding-bottom: 16px; /* Odstęp między górną linią a search barem */
-	/* Zapewnij, że header-top-row jest również odsunięty od krawędzi, jeśli .app-header ma padding */
+	width: 92%;
+	padding-bottom: 16px;
 	padding-right: 0;
 	margin-left: 16px;
 	margin-top: 4px;
@@ -55,10 +50,9 @@ html {
 	font-weight: 700;
 	font-size: 20px;
 	white-space: nowrap;
-	/* Usunięto margin-right, bo space-between to obsłuży */
 }
 
-/* Nowe style dla selektora języka */
+/* LANGUAGE SELECTOR */
 .language-selector {
 	display: flex;
 	gap: 5px;
@@ -87,25 +81,23 @@ html {
 	color: white;
 }
 
-/* Styl paska szukania */
+/* SEARCHBAR */
 .search-container {
 	background: white;
 	border-radius: 20px;
 	display: flex;
 	align-items: center;
-	padding: 6px 12px; /* Zmniejszona wysokość paddingu dla search bara */
+	padding: 6px 12px;
 	flex-grow: 1;
-	width: calc(
-		100% - 32px
-	); /* Zmniejsz szerokość o podwójny margin boczny (16px * 2) */
+	width: calc(100% - 32px);
 	max-width: none;
 	border: 1px solid rgba(255, 255, 255, 0.2);
-	margin: 0 16px; /* Dodanie marginesów bocznych, aby odsunąć od krawędzi */
-	box-sizing: border-box; /* Ważne, aby padding i border były wewnątrz ustalonej szerokości */
+	margin: 0 16px;
+	box-sizing: border-box;
 }
 
 .search-icon {
-	width: 14px; /* Możesz również zmniejszyć ikonkę lupy */
+	width: 14px;
 	height: 14px;
 	fill: gray;
 	margin-right: 8px;
@@ -116,36 +108,26 @@ html {
 	background: transparent;
 	border: none;
 	color: black;
-	font-size: 16px; /* Lekko zmniejsz rozmiar fontu w polu wyszukiwania */
+	font-size: 16px;
 	width: 100%;
 	outline: none;
-	/* height: 28px; */ /* Możesz też ustawić sztywną wysokość, jeśli chcesz */
 }
 
 .search-input::placeholder {
 	color: gray;
 }
 
-/* --- PŁYWAJĄCE PRZYCISKI (Floating buttons) --- */
+/* --- ADD WELL BTN --- */
 .floating-buttons-container {
 	position: fixed;
 	bottom: 20px;
-	right: 20px;
+	left: 50%;
+	transform: translateX(-50%);
 	z-index: 9999;
 	display: flex;
 	flex-direction: column;
-	align-items: flex-end;
+	align-items: center;
 	gap: 10px;
-}
-
-@media (max-width: 500px) {
-	.floating-buttons-container {
-		left: 50%;
-		transform: translateX(-50%);
-		right: auto;
-		align-items: center;
-		/* Wyśrodkowanie na mobilkach */
-	}
 }
 
 #mainAddWellBtn {
@@ -156,7 +138,7 @@ html {
 	border: none;
 	font-size: 16px;
 	font-weight: 700;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	cursor: pointer;
 	transition: background 0.3s ease, transform 0.2s ease;
 	text-transform: uppercase;
@@ -169,7 +151,6 @@ html {
 	background: #011241;
 }
 
-/* Opcje dodawania studni */
 .add-well-options {
 	display: none;
 	flex-direction: column;
@@ -205,226 +186,171 @@ html {
 .add-well-options button:hover {
 	background: #011241;
 }
+#cancelAddWellBtn {
+	background: #666 !important;
+}
 
-/* --- MODAL FORMULARZA --- */
-/* Modal background */
+/* --- MODAL --- */
 .modal-bg {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.4);
+	background: rgba(0, 0, 0, 0.5);
 	display: none;
+	align-items: center;
 	justify-content: center;
-	align-items: flex-start;
-	padding-top: 32px;
+	padding: 20px;
 	box-sizing: border-box;
 	z-index: 10000;
 }
 
-/* Modal container */
-.modal {
-	background: white;
-	width: 95%;
-	max-width: 500px;
-	padding: 0;
-	border-radius: 20px;
-	max-height: calc(100vh - 50px);
-	overflow-y: auto;
-	position: relative;
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-	margin: 0 auto;
+.modal-bg[style*="display: flex"] {
+	display: flex !important;
 }
 
-/* Header */
-.modal-header-controls {
-	position: relative;
-	padding: 24px 24px 0 24px;
+.modal {
 	background: white;
-	border-top-left-radius: 20px;
-	border-top-right-radius: 20px;
+	width: 100%;
+	max-width: 500px;
+	height: auto;
+	max-height: 84vh;
+	border-radius: 24px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	overflow: hidden;
+}
+
+.modal-header-controls {
+	background: white;
+	padding: 20px 24px 10px 24px;
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	border-bottom: 1px solid #f0f0f0;
 }
 
 .modal-header-controls h2 {
-	margin-top: 0;
-	font-size: 24px;
+	margin: 0 0 5px 0;
+	font-size: 22px;
 	font-weight: 700;
 	color: #333;
-	margin-bottom: 4px;
-	padding-right: 40px;
+	padding-right: 30px;
 }
 
 .modal-header-controls p.desc {
-	margin-top: 0;
-	margin-bottom: 16px;
+	margin: 0;
 	color: #666;
-	font-size: 16px;
-	line-height: 1.6;
-	padding-right: 40px;
-}
-.modal-no-internet {
-	margin-top: 16px;
-	color: #666;
-	font-size: 12px;
-	line-height: 1.6;
+	font-size: 15px;
+	line-height: 1.5;
+	padding-right: 30px;
 }
 
-/* Close X for modal */
+/* CLOSE X */
 .modal-header-controls .close-btn {
 	position: absolute;
 	right: 20px;
 	top: 20px;
 	font-size: 32px;
-	line-height: 20px;
+	line-height: 1;
 	cursor: pointer;
-	color: #444;
-	z-index: 10;
-	font-weight: 300;
+	color: #888;
+	z-index: 30;
+	width: 40px;
+	height: 40px;
+	text-align: center;
 }
 
 .modal-content-inner {
 	padding: 24px;
-	padding-top: 0;
-	box-sizing: border-box;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	padding-bottom: 40px;
 }
 
-/* Inputs, Selects, Textareas */
 .modal-content-inner select,
 .modal-content-inner input[type="text"],
-.modal-content-inner input[type="file"],
 .modal-content-inner textarea {
 	width: 100%;
 	padding: 12px;
 	border: 1px solid #ccc;
-	border-radius: 8px;
+	border-radius: 12px;
 	font-size: 16px;
 	margin-bottom: 12px;
-	display: block;
 	box-sizing: border-box;
 	font-family: inherit;
+	background: #fff;
 }
 
 .modal-content-inner select {
 	height: 48px;
-	background-color: white;
 }
 
 label {
 	display: block;
-	margin-top: 16px;
+	margin-top: 15px;
 	margin-bottom: 8px;
 	font-weight: 600;
-	font-size: 16px;
+	font-size: 15px;
 	color: #444;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-	border-color: #001d6e;
-	outline: 2px solid rgba(0, 29, 110, 0.2);
-}
-
-textarea {
-	resize: vertical;
-	min-height: 100px;
-}
-
-/* File input styling */
-input[type="file"]::file-selector-button {
-	background: #e0e0e0;
-	color: #333;
-	border: none;
-	border-radius: 8px;
-	padding: 8px 12px;
-	margin-right: 12px;
-	cursor: pointer;
-}
-
-/* NOWOŚĆ: Siatka 2-kolumnowa dla dropdownów i pól tekstowych obok siebie */
+/* 2 COLUMNS GRID */
 .two-col-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 12px;
-	margin-top: 12px;
-	/* Usuń margin-bottom z inputów i selectów wewnątrz, bo container ma gap */
+	margin-top: 5px;
 }
-
+.two-col-grid > div {
+	display: flex;
+	flex-direction: column;
+}
+.two-col-grid input,
+.two-col-grid select {
+	margin-bottom: 0;
+}
 @media (max-width: 380px) {
 	.two-col-grid {
 		grid-template-columns: 1fr;
 	}
 }
 
-/* Ten styl jest kluczowy, aby etykieta i input/select były razem w kolumnie
-   i aby ten div był komórką w siatce .two-col-grid */
-.two-col-grid > div {
-	display: flex;
-	flex-direction: column;
-}
-
-/* Zmiana: Usuwamy standardowy margin-bottom z elementów wewnątrz siatki, 
-   bo odstępy są kontrolowane przez 'gap' i 'margin-top' dla label. */
-.two-col-grid input[type="text"],
-.two-col-grid select {
-	margin-bottom: 0;
-}
-
-/* Status/Condition (to już nie jest używane jako siatka przycisków,
-   ale zostawiamy definicje dla jakości wody) */
-.status-grid {
-	/* Zmieniono nazwę na Water Quality Grid */
-	display: grid;
-	grid-template-columns: 1fr 1fr; /* Ustawienie 2 kolumn dla przycisków */
-	gap: 12px;
-	margin-top: 12px;
-}
-
+/* Quality buttons */
 .quality-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 12px;
-	margin-top: 12px;
+	gap: 10px;
+	margin-top: 5px;
 }
-.modal-content-inner label:has(+ .quality-grid) {
-	margin-top: 24px;
-}
-
-@media (max-width: 380px) {
-	.status-grid,
-	.quality-grid {
-		grid-template-columns: 1fr;
-	}
-}
-
-/* Status and Quality Button Styles (połączone) - tylko dla Water Quality */
 .quality-btn {
 	padding: 12px;
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	font-size: 16px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	font-size: 15px;
 	background: white;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	gap: 8px;
 	justify-content: center;
 	text-align: center;
-	transition: background 0.2s ease;
-	color: #424242;
+	color: #555;
+	transition: all 0.2s;
 }
-
 .quality-btn.active {
 	border-color: #001d6e;
-	background: #e1efff;
-	font-weight: 700;
+	background: #e6effc;
 	color: #001d6e;
+	font-weight: 600;
+	box-shadow: 0 2px 5px rgba(0, 29, 110, 0.1);
 }
 
 /* Submit button */
 .submit-btn {
-	margin-top: 24px;
+	margin-top: 30px;
 	background: #001d6e;
 	color: white;
 	padding: 16px;
@@ -434,67 +360,63 @@ input[type="file"]::file-selector-button {
 	font-size: 18px;
 	font-weight: 700;
 	cursor: pointer;
-	text-transform: uppercase;
+	box-shadow: 0 4px 10px rgba(0, 29, 110, 0.3);
 }
-
 .submit-btn:hover {
 	background: #011241;
 }
-
-.thankyou {
-	text-align: center;
-	padding: 40px 16px;
-	font-size: 20px;
-	color: #001d6e;
-	font-weight: 600;
-	line-height: 1.5;
-}
-
-.checkbox-container {
-	display: flex;
-	align-items: center;
+.modal-no-internet {
 	margin-top: 20px;
-	font-size: 16px;
-	font-weight: 600;
-	color: #555;
+	padding: 15px;
+	background-color: #f8f9fa;
+	border: 1px solid #e9ecef;
+	border-radius: 10px;
+	color: #666;
+	font-size: 13px;
+	line-height: 1.5;
+	text-align: center;
 }
 
-.checkbox-container input[type="checkbox"] {
-	width: 20px;
-	height: 20px;
-	margin: 0 12px 0 0;
-	flex-shrink: 0;
-}
-
-/* Modal Map Header */
 .modal-map-container {
 	width: 100%;
-	height: 160px;
-	overflow: hidden;
-	position: relative;
-	background-color: #f5f5f5;
-	margin-bottom: 20px;
+	height: 180px;
+	background: #eee;
+	flex-shrink: 0;
 }
-
-.modal-map-container #modalMap {
+#modalMap {
 	width: 100%;
 	height: 100%;
 }
 
-.modal-map-container .leaflet-control-container {
-	display: none;
+/* Checkbox */
+.checkbox-container {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+	font-size: 14px;
+	color: #666;
+}
+.checkbox-container input {
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
 }
 
-/* --- POPUP POD PINEM (Leaflet) --- */
+.thankyou {
+	padding: 40px 20px;
+	text-align: center;
+	font-size: 18px;
+	color: #001d6e;
+	line-height: 1.6;
+}
+
+/* --- POPUP UNDER PIN (Leaflet) --- */
 .leaflet-popup {
 	margin: 0 !important;
 	bottom: auto !important;
-	/* Wyłączamy domyślne rysowanie w górę */
 	top: 0 !important;
-	/* Włączamy rysowanie w dół od punktu zaczepienia */
 }
 
-/* Leaflet popup styling */
 .leaflet-popup-content-wrapper {
 	border-radius: 12px;
 	padding: 12px;
@@ -538,49 +460,46 @@ input[type="file"]::file-selector-button {
 	text-transform: uppercase;
 }
 
-/* Ukrywamy domyślną strzałkę na dole i robimy nową na górze */
 .leaflet-popup-tip-container {
 	display: none;
 }
 
-/* Tworzymy "sztuczną" strzałkę na górze dymka za pomocą pseudoelementu */
 .leaflet-popup-content-wrapper::before {
 	content: "";
 	position: absolute;
 	top: -10px;
-	/* Wysunięcie nad dymek */
 	left: 50%;
 	transform: translateX(-50%);
 	border-width: 0 12px 12px 12px;
-	/* Trójkąt skierowany w górę */
 	border-style: solid;
 	border-color: transparent transparent white transparent;
 	z-index: 1;
 }
+.leaflet-popup-close-button {
+	width: 36px !important;
+	height: 36px !important;
+	font-size: 30px !important;
+	line-height: 36px !important;
+	color: #666 !important;
+	font-weight: normal !important;
+	top: 8px !important;
+	right: 8px !important;
+}
 
-/* Styl dla kontenera notatek (teraz to div, więc nie ma linii przerywanej) */
 .popup-notes {
 	margin-top: 12px;
-	/* Odstęp od reszty tabelki */
 	font-size: 16px;
-	/* Rozmiar czcionki */
 	line-height: 1.6;
-	/* Odstępy między wierszami tekstu */
 	color: #444;
-	/* Kolor tekstu */
 }
 
-/* Styl dla słowa "Notes:" */
 .popup-notes strong {
 	color: #001d6e;
-	/* Twój kolor */
 	display: block;
-	/* Zajmuje całą linię */
 	margin-bottom: 4px;
-	/* Mały odstęp między "Notes:" a tekstem */
 }
 
-/* Custom pin styles (Data URIs - no external requests) */
+/* --- CUSTOM PIN ICONS --- */
 .custom-pin-icon {
 	background-repeat: no-repeat;
 	background-position: center bottom;
@@ -607,79 +526,68 @@ input[type="file"]::file-selector-button {
 	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36"><path fill="%23DC2626" d="M12 0c-6.6 0-12 5.4-12 12 0 9 12 24 12 24s12-15 12-24c0-6.6-5.4-12-12-12z"/></svg>');
 }
 
-/* --- POPRAWKI DLA JĘZYKÓW RTL (ARABSKI) --- */
+/* --- Corrections for RTL languages (Arabic) --- */
 
-/* 1. Przeniesienie X w modalu na lewą stronę */
+/*  X to the left */
 html[dir="rtl"] .close-btn {
-	right: auto; /* Wyłączamy pozycjonowanie z prawej */
-	left: 20px; /* Włączamy pozycjonowanie z lewej */
+	right: auto;
+	left: 20px;
 }
 
-/* Opcjonalnie: wyrównanie tekstu w nagłówku modala do prawej */
 html[dir="rtl"] .modal-header-controls {
 	text-align: right;
 }
 
-/* Opcjonalnie: odwrócenie kolejności ikonek jakości wody w modalu */
 html[dir="rtl"] .quality-grid {
 	direction: rtl;
 }
-/* 2. Przeniesienie X w dymkach na mapie (Leaflet) na lewą stronę */
+/* X to the left in popup */
 html[dir="rtl"] .leaflet-popup-close-button {
 	right: auto !important; /* !important jest tu potrzebne, bo Leaflet ma silne style */
 	left: 0 !important;
 }
 
-/* Wyrównanie tekstu w dymku do prawej */
+/* text to the right */
 html[dir="rtl"] .leaflet-popup-content-wrapper {
 	text-align: right;
 	direction: rtl;
 }
 
-/* Przesunięcie tekstu w dymku, żeby nie wchodził pod X (który teraz jest z lewej) */
 html[dir="rtl"] .leaflet-popup-content {
-	margin-right: 20px; /* Standardowy margines Leaflet */
-	margin-left: 24px; /* Dodatkowy margines z lewej na przycisk X */
-}
-
-/* --- POPRAWKI NAGŁÓWKA DLA RTL (ARABSKI) --- */
-html[dir="rtl"] .header-top-row {
-	/* 1. Usuwamy margines z lewej (który był dla angielskiego).
-       Dzięki temu przyciski języka przesuną się w lewo, bliżej krawędzi. */
-	margin-left: 0;
-
-	/* 2. Dodajemy margines z prawej.
-       To odsunie arabski tytuł od prawej krawędzi ekranu, dając mu oddech. */
 	margin-right: 20px;
-
-	/* 3. Lekko zwiększamy szerokość kontenera w trybie arabskim, 
-       żeby wykorzystać odzyskaną przestrzeń */
+	margin-left: 24px;
 }
-/* --- POWIĘKSZENIE CZCIONEK DLA JĘZYKA ARABSKIEGO --- */
-/* --- SPECJALNE POWIĘKSZENIE DLA POPUPÓW ARABSKICH --- */
+
+html[dir="rtl"] .header-top-row {
+	margin-left: 0;
+	margin-right: 20px;
+}
+html[dir="rtl"] .modal-header-controls .close-btn {
+	right: auto;
+	left: 20px;
+}
+
+/* --- FONT ENLARGEMENT FOR ARABIC --- */
+
 html[lang="ar"] .leaflet-popup-content {
-	/* Powiększamy bazowy tekst w dymku do 18px (standard to ok. 13px) */
 	font-size: 18px !important;
-	line-height: 1.8 !important; /* Duży odstęp, żeby kropki w literach się nie zlewały */
-	width: 250px !important; /* Poszerzamy dymek, żeby pomieścił większy tekst */
+	line-height: 1.8 !important;
+	width: 250px !important;
 	text-align: right;
 }
 
-/* Tytuł w dymku (np. Bîra li Heleb) */
 html[lang="ar"] .leaflet-popup-content b {
 	font-size: 21px !important;
 	display: block;
 	margin-bottom: 10px;
-	color: #002b5c; /* Ciemniejszy kolor dla lepszej czytelności */
+	color: #002b5c;
 }
 
-/* Etykiety (Status, Dostępność itd.) */
 html[lang="ar"] .leaflet-popup-content strong {
-	font-weight: 800; /* Pogrubiamy etykiety, żeby były wyraźniejsze */
+	font-weight: 800;
 	color: #333;
 }
 
-/* Tekst notatek na dole dymku */
 html[lang="ar"] .leaflet-popup-content .popup-notes {
 	font-size: 16px !important;
 	background: #f9f9f9;
@@ -688,11 +596,14 @@ html[lang="ar"] .leaflet-popup-content .popup-notes {
 	margin-top: 10px;
 }
 
-/* Przycisk "Update Report" wewnątrz dymku */
 html[lang="ar"] .leaflet-popup-content button {
 	font-size: 17px !important;
 	padding: 8px 15px !important;
 	width: 100%;
 	margin-top: 10px;
 	font-weight: bold;
+}
+html[dir="rtl"] .leaflet-popup-close-button {
+	right: auto !important;
+	left: 8px !important;
 }
