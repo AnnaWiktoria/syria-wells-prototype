@@ -1,6 +1,6 @@
 /* -------------------------
             PIN ICONS
-        ----------------------------*/
+----------------------------*/
 function pin(colorClass) {
 	return L.divIcon({
 		className: `custom-pin-icon ${colorClass}`,
@@ -26,11 +26,11 @@ function chooseIcon(availability) {
 		case "None":
 			return ICON_RED;
 		default:
-			return ICON_LIGHT; // Domyślna ikona w razie błędu
+			return ICON_LIGHT; // Default icon in case of error
 	}
 }
 /* -------------------------
-            LANGUAGE LOGIC - DEFINICJA SŁOWNIKA I ZMIENNYCH JĘZYKOWYCH
+            LANGUAGE LOGIC 
         ----------------------------*/
 const translations = {
 	en: {
@@ -39,6 +39,7 @@ const translations = {
 		addCurrentLocationBtn: "📍 Add at Current Location",
 		addTapMapBtn: "👆 Add by Tapping Map",
 		addWellBtn: "Add Well",
+		btnCancel: "✕ Cancel",
 		reportUpdateBtn: "Report Update",
 		modalUpdateReport: "Update Report",
 		modalNewWell: "New Well",
@@ -59,12 +60,9 @@ const translations = {
 		qualitySmelly: "👃 Smelly",
 		qualityContaminated: "🤢 Contaminated",
 		modalWellType: "Well Type (optional)",
-
-		// --- POPRAWIONE KLUCZE (małe litery p i w) ---
 		typeHandpump: "🖐️ Hand pump",
 		typeBorehole: "🛢️ Borehole",
 		typeOpenwell: "🕳️ Open well",
-		// ---------------------------------------------
 		typeSpring: "🏞️ Source",
 		typeOther: "❓ Other",
 		modalDepth: "Depth (optional)",
@@ -91,7 +89,7 @@ const translations = {
 			"Geolocation is not supported by your browser.",
 		alertTapMapPrompt: "Tap on the map to place a new well.",
 		alertLocationNotFound: "Location not found in Syria",
-		// --- DANE SZCZEGÓŁOWE ---
+		// --- DETAILS ---
 		cityAleppo: "Aleppo",
 		cityRaqqa: "Raqqa",
 		cityDeir: "Deir ez-Zor",
@@ -101,8 +99,7 @@ const translations = {
 		note_well_C: "Has been dry for 3 months now. Urgent need for new source.",
 		note_well_D:
 			"Smells bad, villagers are getting sick. Investigation needed.",
-		// ... (inne tłumaczenia)
-		popupStaticTitle: "Well in {village}", // <--- DODAJ TO
+		popupStaticTitle: "Well in {village}",
 	},
 	ar: {
 		headerTitle: "آبار في سوريا",
@@ -110,6 +107,7 @@ const translations = {
 		addCurrentLocationBtn: "📍 إضافة في الموقع الحالي",
 		addTapMapBtn: "👆 إضافة بالنقر على الخريطة",
 		addWellBtn: "إضافة بئر",
+		btnCancel: "✕ إلغاء",
 		reportUpdateBtn: "تحديث التقرير",
 		modalUpdateReport: "تحديث التقرير",
 		modalNewWell: "بئر جديد",
@@ -130,12 +128,9 @@ const translations = {
 		qualitySmelly: "👃 كريهة الرائحة",
 		qualityContaminated: "🤢 ملوثة",
 		modalWellType: "نوع البئر (اختياري)",
-
-		// --- POPRAWIONE KLUCZE (małe litery p i w) ---
 		typeHandpump: "🖐️ مضخة يدوية",
 		typeBorehole: "🛢️ بئر ارتوازي",
 		typeOpenwell: "🕳️ بئر مفتوح",
-		// ---------------------------------------------
 		typeSpring: "🏞️ نبع",
 		typeOther: "❓ أخرى",
 		modalDepth: "العمق (اختياري)",
@@ -162,7 +157,7 @@ const translations = {
 		alertGeolocationNotSupported: "الموقع الجغرافي غير مدعوم من قبل متصفحك.",
 		alertTapMapPrompt: "انقر على الخريطة لوضع بئر جديد.",
 		alertLocationNotFound: "الموقع غير موجود في سوريا",
-		// --- DANE SZCZEGÓŁOWE ---
+		// --- DETAILS ---
 		cityAleppo: "حلب",
 		cityRaqqa: "الرقة",
 		cityDeir: "دير الزور",
@@ -179,6 +174,7 @@ const translations = {
 		addCurrentLocationBtn: "📍 Li Cihê Heyî Zêde bike",
 		addTapMapBtn: "👆 Bi Tikandina Nexşeyê Zêde bike",
 		addWellBtn: "Bîrek Zêde bike",
+		btnCancel: "✕ Betal bike",
 		reportUpdateBtn: "Rapora Nû bike",
 		modalUpdateReport: "Rapora Nû bike",
 		modalNewWell: "Bîra Nû",
@@ -199,12 +195,9 @@ const translations = {
 		qualitySmelly: "👃 Bêhnxweş",
 		qualityContaminated: "🤢 Pîs",
 		modalWellType: "Cureya Bîrê (vebijarkî)",
-
-		// --- POPRAWIONE KLUCZE (małe litery p i w) ---
 		typeHandpump: "🖐️ Pompa Destan",
 		typeBorehole: "🛢️ Bîra Kûr",
 		typeOpenwell: "🕳️ Bîra Vekirî",
-		// ---------------------------------------------
 		typeSpring: "🏞️ Kanî",
 		typeOther: "❓ Din",
 		modalDepth: "Kûrahî (vebijarkî)",
@@ -221,21 +214,18 @@ const translations = {
 		Heke hûn ne serhêl bin, rapora we tê tomarkirin û dema ku hûn dîsa serhêl bibin dê were şandin.`,
 		offlineMessage:
 			"Înternet tune ye? Rapora we tê tomarkirin û dema ku hûn bikevin ser înternetê dê were şandin. Tenê bişkoka 'Rapora Bişîne' bitikînin.",
-
-		// --- POPRAWIONE DWUKROPKI (dla LTR są po prawej) ---
 		popupStatus: "Rewş:",
 		popupAvailability: "Berdestbûn:",
 		popupQuality: "Kalîte:",
 		popupType: "Cure:",
 		popupDepth: "Kûrahî:",
 		popupNotes: "Têbînî:",
-		// ----------------------------------------------------
 		alertCurrentLocationError: "Nikare cîhê weya heyî bistîne.",
 		alertGeolocationNotSupported:
 			"Cîhê erdnîgarî ji hêla geroka we ve nayê piştgirî kirin.",
 		alertTapMapPrompt: "Li ser nexşeyê bikirtînin da ku bîrek nû bi cîh bikin.",
 		alertLocationNotFound: "Cîh li Sûriyê nehat dîtin",
-		// --- DANE SZCZEGÓŁOWE ---
+		// --- DETAILS ---
 		cityAleppo: "Heleb",
 		cityRaqqa: "Reqa",
 		cityDeir: "Dêra Zorê",
@@ -248,15 +238,15 @@ const translations = {
 		popupStaticTitle: "Bîra li {village}",
 	},
 };
-let currentLanguage = "en"; // Domyślny język
+let currentLanguage = "en"; // // Default language
 
 /* -------------------------
             MAIN MAP INIT
         ----------------------------*/
-// Granice Syrii (w przybliżeniu, z lekkim zapasem)
+// Syria's borders (roughly, with a slight margin)
 var syriaBounds = [
-	[29.0, 33.0], // Południowy-Zachód
-	[40.0, 46.0], // Północny-Wschód
+	[29.0, 33.0], // S-W
+	[40.0, 46.0], // N-E
 ];
 
 var map = L.map("map", {
@@ -266,7 +256,7 @@ var map = L.map("map", {
 	minZoom: 7,
 }).setView([35.0, 38.9], 7);
 
-// --- LOGIKA CENTROWANIA NA 20% OD GÓRY ---
+// --- CENTRE LOGIC AT 20% FROM THE TOP ---
 map.on("popupopen", function (e) {
 	var px = map.project(e.popup._latlng);
 	var mapHeight = map.getSize().y;
@@ -289,7 +279,7 @@ let tempMarker = null;
         ----------------------------*/
 const wells = [
 	{
-		name: "well_A_name", // Zmieniono na klucz
+		name: "well_A_name",
 		village: "cityAleppo",
 		coords: [35.95, 38.99],
 		status: ["Functional"],
@@ -300,7 +290,7 @@ const wells = [
 		additionalNotes: "note_well_A",
 	},
 	{
-		name: "well_B_name", // Zmieniono na klucz
+		name: "well_B_name",
 		village: "cityRaqqa",
 		coords: [36.5, 40.75],
 		status: ["Needs repair"],
@@ -311,7 +301,7 @@ const wells = [
 		additionalNotes: "note_well_B",
 	},
 	{
-		name: "well_C_name", // Zmieniono na klucz
+		name: "well_C_name",
 		village: "cityDeir",
 		coords: [35.33, 40.17],
 		status: ["Dry"],
@@ -322,7 +312,7 @@ const wells = [
 		additionalNotes: "note_well_C",
 	},
 	{
-		name: "well_D_name", // Zmieniono na klucz
+		name: "well_D_name",
 		village: "cityHama",
 		coords: [36.53, 37.95],
 		status: ["Contaminated"],
@@ -334,10 +324,9 @@ const wells = [
 	},
 ];
 
-// --- LOGIKA WYSZUKIWANIA ---
+// --- SEARCH LOGIC ---
 const searchInput = document.getElementById("searchInput");
 
-// --- START: FUNKCJE ZWIĄZANE Z JĘZYKIEM (PRZENIESIONE NA GÓRĘ) ---
 function setLanguage(lang) {
 	currentLanguage = lang;
 	const isRtl = lang === "ar";
@@ -375,9 +364,7 @@ function updateAllWellPopups() {
 		}
 	});
 }
-// --- KONIEC: FUNKCJE ZWIĄZANE Z JĘZYKIEM ---
 
-// Helpery ikon (Emoji zastępują FontAwesome)
 function getStatusIcon(statusValue) {
 	switch (statusValue) {
 		case "Functional":
@@ -435,29 +422,26 @@ function getTypeIcon(typeValue) {
 	}
 }
 
-// Funkcje do tworzenia popupów i formularzy (muszą być PO funkcjach językowych)
+// Functions for creating pop-ups and forms
 function createWellPopupContent(w) {
 	const t = translations[currentLanguage];
 
-	// 1. TŁUMACZENIE I LOGIKA TYTUŁU
+	// TRANSLATION AND LOGIC OF THE TITLE
 	const nameText = t[w.name] || w.name;
 	const villageText = t[w.village] || w.village;
 	const notesText = t[w.additionalNotes] || w.additionalNotes;
 
-	// --- NOWA LOGIKA NAGŁÓWKA ---
+	// --- HEADER ---
 	let headerHTML = "";
 
-	// Sprawdzamy, czy to studnia z bazy (jej nazwa kodowa zaczyna się od "well_")
 	if (w.name.startsWith("well_")) {
-		// Użyj ładnego formatu: "Well in Aleppo" / "Bîra li Heleb"
 		headerHTML = t.popupStaticTitle.replace("{village}", villageText);
 	} else {
-		// Dla studni dodanych przez użytkownika zachowaj stary format: "Nazwa (Wioska)"
 		headerHTML = `${nameText} (${villageText})`;
 	}
 	// -----------------------------
 
-	// --- PANCERNA MAPA TYPÓW STUDNI ---
+	// --- TYPES OF WELLS ---
 	const typeMapping = {
 		"Hand pump": "typeHandpump",
 		"Hand Pump": "typeHandpump",
@@ -471,7 +455,7 @@ function createWellPopupContent(w) {
 	const typeKey = typeMapping[w.wellType] || "typeOther";
 	const typeText = t[typeKey] || w.wellType;
 
-	// --- MAPY STATUSU I DOSTĘPNOŚCI ---
+	// --- STATUS AND AVAILABILITY MAPS ---
 	const statusMapping = {
 		Functional: "conditionFunctional",
 		"Needs repair": "conditionNeedsRepair",
@@ -492,8 +476,7 @@ function createWellPopupContent(w) {
 	const availKey = availMapping[w.waterAvailability] || "availabilityModerate";
 	const availText = t[availKey] || w.waterAvailability;
 
-	// --- BUDOWANIE TREŚCI ---
-	// Używamy naszego nowego nagłówka
+	// --- CONTENT BUILDING ---
 	let content = `<b>${headerHTML}</b>`;
 
 	content += `<p><strong>${t.popupStatus}</strong> <span>${statusText}</span></p>`;
@@ -557,8 +540,8 @@ function openModal(
 
 	map.off("click", handleMapTapForNewWell);
 
-	resetForm(); // Ta funkcja już jest przetłumaczona
-	modalBg.style.display = "flex"; // Initialize modal map
+	resetForm();
+	modalBg.style.display = "flex";
 
 	if (currentWellCoords) {
 		setTimeout(() => {
@@ -715,7 +698,7 @@ function resetForm() {
 
 	const t = translations[currentLanguage];
 
-	// Pobieramy tłumaczenie nazwy wioski
+	// We retrieve the translation of the village name.
 	const translatedVillageName = t[currentVillageName] || currentVillageName;
 
 	modalContent.innerHTML = `
@@ -855,16 +838,54 @@ function resetForm() {
 			document.getElementById("depthSelect").value = wellToEdit.wellDepth;
 	}
 }
-// Listenery dla przycisków
-document
-	.getElementById("mainAddWellBtn")
-	.addEventListener("click", function () {
-		addWellOptions.classList.toggle("active");
+
+//---ADD NEW WELL---
+
+function handleMapTapForNewWell(e) {
+	if (tempMarker) {
+		map.removeLayer(tempMarker);
+	}
+
+	tempMarker = L.marker(e.latlng, { icon: ICON_BLUE, draggable: true }).addTo(
+		map
+	);
+
+	tempMarker.on("dragend", function (event) {
+		const marker = event.target;
+		const position = marker.getLatLng();
+		currentWellCoords = [position.lat, position.lng];
 	});
+
+	currentWellCoords = [e.latlng.lat, e.latlng.lng];
+	openModal("Tapped Location", "", [e.latlng.lat, e.latlng.lng]);
+
+	map.off("click", handleMapTapForNewWell);
+}
+
+// --- LISTENERS FOR ADD WELL BTNS ---
+
+const mainBtn = document.getElementById("mainAddWellBtn");
+const optionsDiv = document.getElementById("addWellOptions");
+const cancelBtn = document.getElementById("cancelAddWellBtn");
+
+mainBtn.addEventListener("click", function () {
+	optionsDiv.classList.add("active");
+	mainBtn.style.display = "none";
+});
+
+if (cancelBtn) {
+	cancelBtn.addEventListener("click", function () {
+		optionsDiv.classList.remove("active");
+		mainBtn.style.display = "block";
+	});
+}
 
 document
 	.getElementById("addWellCurrentLocationBtn")
 	.addEventListener("click", function () {
+		optionsDiv.classList.remove("active");
+		mainBtn.style.display = "block";
+
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
 				function (position) {
@@ -885,29 +906,14 @@ document
 document
 	.getElementById("addWellTapMapBtn")
 	.addEventListener("click", function () {
+		optionsDiv.classList.remove("active");
+		mainBtn.style.display = "block";
+
 		alert(translations[currentLanguage].alertTapMapPrompt);
 		map.on("click", handleMapTapForNewWell);
-		addWellOptions.classList.remove("active");
 	});
 
-function handleMapTapForNewWell(e) {
-	if (tempMarker) {
-		map.removeLayer(tempMarker);
-	}
-	tempMarker = L.marker(e.latlng, { icon: ICON_BLUE, draggable: true }).addTo(
-		map
-	);
-	tempMarker.on("dragend", function (event) {
-		const marker = event.target;
-		const position = marker.getLatLng();
-		currentWellCoords = [position.lat, position.lng];
-	});
-
-	openModal("Tapped Location", "", [e.latlng.lat, e.latlng.lng]);
-	map.off("click", handleMapTapForNewWell);
-}
-
-// Listenery dla przycisków języka
+// LISTENERS FOR LANG BTNS
 document
 	.getElementById("langEn")
 	.addEventListener("click", () => setLanguage("en"));
@@ -918,16 +924,12 @@ document
 	.getElementById("langKu")
 	.addEventListener("click", () => setLanguage("ku"));
 
-// Ustawienie początkowego języka przy ładowaniu strony i inicjalizacja markerów
 document.addEventListener("DOMContentLoaded", () => {
-	// Upewnij się, że setLanguage jest wywołane jako pierwsze,
-	// zanim markery zostaną dodane i ich popupy utworzone.
 	setLanguage(currentLanguage);
 
 	wells.forEach(w => {
 		const iconToUse = chooseIcon(w.waterAvailability);
 		const m = L.marker(w.coords, { icon: iconToUse }).addTo(map);
-		// Użyj przetłumaczonej zawartości popupu
 		m.bindPopup(createWellPopupContent(w), {
 			closeButton: true,
 			autoPan: false,
@@ -937,15 +939,23 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 });
 
+// ENTER IN SEARCHBAR
+searchInput.addEventListener("keypress", function (e) {
+	if (e.key === "Enter") {
+		performSearch();
+	}
+});
 function performSearch() {
 	const term = searchInput.value.toLowerCase();
 	if (term.length < 3) return;
 
-	const localWell = wells.find(
-		w =>
-			w.village.toLowerCase().includes(term) ||
-			w.name.toLowerCase().includes(term)
-	);
+	const t = translations[currentLanguage];
+
+	const localWell = wells.find(w => {
+		const villageTranslated = (t[w.village] || w.village).toLowerCase();
+		const nameTranslated = (t[w.name] || w.name).toLowerCase();
+		return villageTranslated.includes(term) || nameTranslated.includes(term);
+	});
 
 	if (localWell) {
 		map.setView(localWell.coords, 14);
